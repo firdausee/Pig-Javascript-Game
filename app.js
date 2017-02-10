@@ -48,17 +48,9 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
 		diceDOM.style.display = 'block';
 		diceDOM.src = 'dice-' + dice + '.png';
 
-		console.log("dice: " + dice);
-		console.log("previousRoll: " + previousRoll);
-		// update round score (if rolled number is not 1)
+		// handle scoring and turn play:
 		if (dice === 1 || (dice === 6 && previousRoll === 6)) {
 			// switch to other player
-			if (dice === 1) {
-				console.log("switch 1")
-			};
-			if (dice === 6 && previousRoll === 6) {
-				console.log("switch 6s")
-			};
 			switchPlayers(); 
 		} else {
 			// add dice value to round score:
