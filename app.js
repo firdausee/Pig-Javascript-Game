@@ -102,18 +102,13 @@ document.querySelector('.btn-score').addEventListener('click', function() {
 		scoreSet = false;
 	} else {
 		// if scoreSet is false:
-			// - hide the div
-		document.querySelector('.input-score').style.display='none';
 			// - grab input text value
 		var input = document.querySelector('.input-score').value;
 			// - set it to winScore
 		winScore = input;
-			// - change score-txt to the win score
-		document.getElementById('score-txt').textContent = winScore;
-			// - change btn-score icon back to compose
-		document.getElementById('icon-toggle').classList.remove('ion-ios-checkmark-outline');
-		document.getElementById('icon-toggle').classList.add('ion-ios-compose-outline');
-		scoreSet = true;
+
+			// clear the input box div, set score to winScore
+		resetWinscoreInputs();
 	};
 });
 
@@ -129,6 +124,9 @@ function initGame() {
 	winScore = 100;
 	activeGame = true;
 	scoreSet = true;
+
+	// clear the input box div, set score to winScore
+	resetWinscoreInputs();
 
 	// hide the dice visual
 	hideDice();
@@ -151,6 +149,17 @@ function initGame() {
 
 	// sets player 1 as active
 	document.querySelector('.player-0-panel').classList.add('active');
+}
+
+// clear the input box div, set score to winScore
+function resetWinscoreInputs() {
+		// - change score-txt to the win score
+	document.getElementById('score-txt').textContent = winScore;
+		// - hide the div
+	document.querySelector('.input-score').style.display='none';
+		// - change btn-score icon back to compose
+	document.getElementById('icon-toggle').classList.remove('ion-ios-checkmark-outline');
+	document.getElementById('icon-toggle').classList.add('ion-ios-compose-outline');
 }
 
 
