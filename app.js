@@ -91,27 +91,28 @@ document.querySelector('.btn-new').addEventListener('click', initGame);
 document.querySelector('.btn-score').addEventListener('click', function() {
 	if (scoreSet) {
 		// if scoreSet is true:
+			// set default value to winScore:
+		document.querySelector('.input-score').value = winScore;
 			// - Make input text box appear
-			
+		document.querySelector('.input-score').style.display='block';
 			// - change btn-score icon to checkmark
-		document.getElementById('icon-toggle').classList.remove('ion-ios-compose-outline')
-		document.getElementById('icon-toggle').classList.add('ion-ios-checkmark-outline')
+		document.getElementById('icon-toggle').classList.remove('ion-ios-compose-outline');
+		document.getElementById('icon-toggle').classList.add('ion-ios-checkmark-outline');
 			// - change scoreSet to false
 		scoreSet = false;
 	} else {
 		// if scoreSet is false:
 			// - hide the div
-
+		document.querySelector('.input-score').style.display='none';
 			// - grab input text value
-		var input = document.querySelector('.input-score').value
+		var input = document.querySelector('.input-score').value;
 			// - set it to winScore
-		winScore = input
+		winScore = input;
 			// - change score-txt to the win score
-		document.getElementById('score-txt').textContent = winScore
+		document.getElementById('score-txt').textContent = winScore;
 			// - change btn-score icon back to compose
-		document.getElementById('icon-toggle').classList.remove('ion-ios-checkmark-outline')
-		document.getElementById('icon-toggle').classList.add('ion-ios-compose-outline')
-
+		document.getElementById('icon-toggle').classList.remove('ion-ios-checkmark-outline');
+		document.getElementById('icon-toggle').classList.add('ion-ios-compose-outline');
 		scoreSet = true;
 	};
 });

@@ -166,6 +166,7 @@ i {
   left: 50%;
   transform: translateX(-49%);
   top: 85px;
+  display: none;
 }
 
 .input-score:focus {
