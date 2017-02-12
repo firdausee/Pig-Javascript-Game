@@ -155,10 +155,28 @@ i {
   transition: margin 0.3s;
 }
 
-.btn-score { top: 120px; }
-.btn-new { top: 170px; }
-.btn-roll { top: 530px; }
-.btn-hold { top: 580px; }
+.input-score {
+  height: 40px;
+  width: 75px;
+  color: #EB4D4D;
+  font-family: Lato;
+  font-size: 20px;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-49%);
+  top: 85px;
+}
+
+.input-score:focus {
+  outline: none;
+}
+
+
+.btn-score { top: 140px; }
+.btn-new { top: 190px; }
+.btn-roll { top: 550px; }
+.btn-hold { top: 600px; }
 
 .dice {
   position: absolute;
