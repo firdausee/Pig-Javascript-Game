@@ -24,7 +24,7 @@ NOTE:
 // declare game variables
 ///////////////////////////////////////
 
-var scores, roundScore, activePlayer, activeGame, previousRoll;
+var scores, roundScore, activePlayer, activeGame, previousRoll, scoreSet, winScore;
 
 /////////////////////////////////////////////
 // call the initiate game function!
@@ -71,7 +71,7 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 		document.getElementById('score-' + activePlayer).textContent = scores[activePlayer];
 
 		// check for win before before switching players if there is no win
-		if (scores[activePlayer] >= 100) {
+		if (scores[activePlayer] >= winScore) {
 			document.getElementById('name-' + activePlayer).textContent = 'Winner!';
 			// activate winner class to style the 'Winner!' text
 			document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
@@ -88,6 +88,34 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
 
 document.querySelector('.btn-new').addEventListener('click', initGame);
 
+document.querySelector('.btn-score').addEventListener('click', function() {
+	if (scoreSet) {
+		// if scoreSet is true:
+			// - Make input text box appear
+			
+			// - change btn-score icon to checkmark
+		document.getElementById('icon-toggle').classList.remove('ion-ios-compose-outline')
+		document.getElementById('icon-toggle').classList.add('ion-ios-checkmark-outline')
+			// - change scoreSet to false
+		scoreSet = false;
+	} else {
+		// if scoreSet is false:
+			// - hide the div
+
+			// - grab input text value
+		var input = document.querySelector('.input-score').value
+			// - set it to winScore
+		winScore = input
+			// - change score-txt to the win score
+		document.getElementById('score-txt').textContent = winScore
+			// - change btn-score icon back to compose
+		document.getElementById('icon-toggle').classList.remove('ion-ios-checkmark-outline')
+		document.getElementById('icon-toggle').classList.add('ion-ios-compose-outline')
+
+		scoreSet = true;
+	};
+});
+
 /////////////////////////////////////////////
 // game functions (for DRY code)
 ///////////////////////////////////////
@@ -97,7 +125,9 @@ function initGame() {
 	scores = [0,0];
 	roundScore = 0;
 	activePlayer = 0;
+	winScore = 100;
 	activeGame = true;
+	scoreSet = true;
 
 	// hide the dice visual
 	hideDice();
