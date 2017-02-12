@@ -16,7 +16,6 @@
 }
 
 body {
-  background-image: linear-gradient(rgba(62, 20, 20, 0.4), rgba(62, 20, 20, 0.4)), url(back.jpg);
   background-size: cover;
   background-position: center;
   font-family: Lato;
@@ -24,6 +23,18 @@ body {
   position: relative;
   height: 100vh;
   color: #555;
+}
+
+.pattern {min-height:100%;}
+
+#zig-zag1 {
+  background: 
+  linear-gradient(135deg, #ccc 25%, transparent 25%) -50px 0,
+  linear-gradient(225deg, #ccc 25%, transparent 25%) -50px 0,
+  linear-gradient(315deg, #ccc 25%, transparent 25%),
+  linear-gradient(45deg, #ccc 25%, transparent 25%);  
+  background-size: 90px 90px;
+  background-color: #eee;
 }
 
 .wrapper {
@@ -144,10 +155,10 @@ i {
   transition: margin 0.3s;
 }
 
-.btn-score {top: 120px;}
-.btn-new { top: 170px;}
-.btn-roll { top: 530px;}
-.btn-hold { top: 580px;}
+.btn-score { top: 120px; }
+.btn-new { top: 170px; }
+.btn-roll { top: 530px; }
+.btn-hold { top: 580px; }
 
 .dice {
   position: absolute;
