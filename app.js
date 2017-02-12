@@ -9,7 +9,7 @@ GAME RULES:
 
 UPDATED RULES:
 - A player loses entire score when two 6's are rolled in a row.
-
+- Add an input field to allow players to select their own winning score.
 */
 
 /*
